@@ -7,8 +7,8 @@ public class EditDistance {
     public static void main(String[] args) {
 
         EditDistance solution = new EditDistance();
-        String a = "abaa";
-        String b = "a";
+        String a = "loolo" ;
+        String b = "ros";
 
         System.out.println(solution.minDistance(a, b));
 
@@ -32,29 +32,27 @@ public class EditDistance {
     public int dpCore(char[] xArrays, char[] yArrays){
         int[][] dpMatrix = new int[yArrays.length][xArrays.length];
 
-        if(yArrays[0] == xArrays[0]){
-            dpMatrix[0][0] =0;
-        }else{
-            dpMatrix[0][0]=1;
+        int xIndex =1;
+        boolean findFlag = false;
+        for(int i=0;i<xArrays.length;i++){
+            if(!findFlag & yArrays[0]==xArrays[i]) {
+                xIndex--;
+                findFlag = true;
+            }
+            dpMatrix[0][i] = xIndex;
+            xIndex++;
         }
 
-//        for(int i=1;i<xArrays.length;i++){
-//            if(yArrays[0]!=xArrays[i]){
-//                dpMatrix[0][i] = dpMatrix[0][i-1]
-//            }
-//            else{
-//                dpMatrix[0][i] = xIndex;
-//            }
-//        }
-//
-//        for(int i=1;i<yArrays.length;i++){
-//            if(yArrays[i]!=xArrays[0]){
-//                yIndex++;
-//                dpMatrix[i][0] = yIndex;
-//            }else{
-//                dpMatrix[i][0] = yIndex;
-//            }
-//        }
+        findFlag = false;
+        int yIndex =1;
+        for(int i=0;i<yArrays.length;i++){
+            if(!findFlag & yArrays[i]==xArrays[0]) {
+                yIndex--;
+                findFlag = true;
+            }
+            dpMatrix[i][0] = yIndex;
+            yIndex++;
+        }
 
 
         for(int i=1;i<xArrays.length;i++){
