@@ -26,3 +26,11 @@ inention -> enention (replace 'i' with 'e')
 enention -> exention (replace 'n' with 'x')
 exention -> exection (replace 'n' with 'c')
 exection -> execution (insert 'u')
+
+
+
+Solve
+a!=b
+min(i-1, j) +1  min(i-1,j-1)+1
+a==b
+min(i-1,j)+1  min(i-1,j-1)

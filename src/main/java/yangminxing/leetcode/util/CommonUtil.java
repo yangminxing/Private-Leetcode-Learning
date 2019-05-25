@@ -10,7 +10,7 @@ public class CommonUtil {
             System.out.print(source[i] +", ");
         }
     }
-    
+
     public static void printArray(int[][] source){
         for(int i=0;i<source.length;i++){
             printArray(source[i]);
