@@ -8,7 +8,7 @@ public class EditDistance {
 
         EditDistance solution = new EditDistance();
         String a = "loolo" ;
-        String b = "ros";
+        String b = "olo";
 
         System.out.println(solution.minDistance(a, b));
 
@@ -62,7 +62,7 @@ public class EditDistance {
                 }
 
                 if(yArrays[j]==xArrays[i]){
-                    dpMatrix[j][i] = min(dpMatrix[j-1][i], dpMatrix[j-1][i-1], dpMatrix[j][i-1]);
+                    dpMatrix[j][i] = min(dpMatrix[j-1][i]+1, dpMatrix[j-1][i-1], dpMatrix[j][i-1]+1);
                 }
             }
         }
