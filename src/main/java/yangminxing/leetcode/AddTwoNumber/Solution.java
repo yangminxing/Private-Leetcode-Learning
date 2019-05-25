@@ -6,17 +6,6 @@ import java.util.List;
 class Solution {
 
     public static void main(String[] args) {
-//        ListNode a1 = new ListNode(5);
-//        ListNode a2 = new ListNode(4);
-//        ListNode a3 = new ListNode(3);
-//        a1.next = a2;
-//        a2.next = a3;
-//
-//        ListNode b1 = new ListNode(5);
-//        ListNode b2 = new ListNode(6);
-//        ListNode b3 = new ListNode(4);
-//        b1.next = b2;
-//        b2.next = b3;
         ListNode a1 = new ListNode(1);
         ListNode a2 = new ListNode(8);
         ListNode a3 = new ListNode(3);
@@ -44,7 +33,7 @@ class Solution {
     public void calTwoNumber(List<ListNode> listResult, ListNode curA, ListNode curB, int forwardNum){
 
         if(curA == null && curB ==null){
-            if(forwardNum==1) {
+            if (forwardNum == 1) {
                 listResult.add(new ListNode(forwardNum));
             }
             return;
@@ -59,7 +48,7 @@ class Solution {
             sumVal = sumVal -10;
         }
         listResult.add(new ListNode(sumVal));
-        calTwoNumber(listResult, curA==null?null:curA, curB==null?null:curB, forwardSing);
+        calTwoNumber(listResult, curA==null?null:curA.next, curB==null?null:curB.next, forwardSing);
     }
 }
 
