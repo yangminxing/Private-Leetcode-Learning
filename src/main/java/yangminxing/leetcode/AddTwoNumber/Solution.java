@@ -25,9 +25,7 @@ class Solution {
 
         ListNode b1 = new ListNode(5);
         ListNode b2 = new ListNode(6);
-        ListNode b3 = new ListNode(4);
         b1.next = b2;
-        b2.next = b3;
 
         Solution s = new Solution();
         ListNode node = s.addTwoNumbers(a1, b1);
@@ -44,16 +42,16 @@ class Solution {
     }
 
     public void calTwoNumber(List<ListNode> listResult, ListNode curA, ListNode curB, int forwardNum){
-        if(forwardNum==1 && (curA == null || curB ==null)){
-            listResult.add(new ListNode(forwardNum));
-        }
 
-        if(curA == null || curB ==null){
+        if(curA == null && curB ==null){
+            if(forwardNum==1) {
+                listResult.add(new ListNode(forwardNum));
+            }
             return;
         }
 
-        int aVal = curA.val;
-        int bVal = curB.val;
+        int aVal = curA==null?0:curA.val;
+        int bVal = curB==null?0:curB.val;
         int sumVal = aVal + bVal + forwardNum;
         int forwardSing =0;
         if(sumVal>=10){
@@ -61,7 +59,7 @@ class Solution {
             sumVal = sumVal -10;
         }
         listResult.add(new ListNode(sumVal));
-        calTwoNumber(listResult, curA.next, curB.next, forwardSing);
+        calTwoNumber(listResult, curA==null?null:curA, curB==null?null:curB, forwardSing);
     }
 }
 
