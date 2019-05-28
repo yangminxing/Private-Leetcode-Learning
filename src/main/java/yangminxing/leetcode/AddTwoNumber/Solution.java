@@ -31,6 +31,7 @@ class Solution {
     }
 
     public void calTwoNumber(List<ListNode> listResult, ListNode curA, ListNode curB, int forwardNum){
+
         if(curA == null && curB ==null){
             if (forwardNum == 1) {
                 listResult.add(new ListNode(forwardNum));
