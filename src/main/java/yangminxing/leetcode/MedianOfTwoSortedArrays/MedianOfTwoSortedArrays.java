@@ -39,8 +39,16 @@ public class MedianOfTwoSortedArrays {
                 return nums2[checkIndex1];
             }
 
-            if(checkIndex1==num1Length){
-                
+            if(checkIndex1==num1Length-1){
+                prevNum = nums2[checkIndex2];
+                checkIndex2 ++;
+                continue;
+            }
+
+            if(checkIndex2==num2Length-1){
+                prevNum = nums1[checkIndex1];
+                checkIndex1 ++;
+                continue;
             }
 
             if(nums1[checkIndex1]<=nums2[checkIndex2]){
@@ -50,7 +58,7 @@ public class MedianOfTwoSortedArrays {
             }
 
             if(nums1[checkIndex1]>nums2[checkIndex2]){
-                prevNum = nums1[checkIndex2];
+                prevNum = nums2[checkIndex2];
                 checkIndex2 ++;
                 continue;
             }
