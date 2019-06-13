@@ -19,8 +19,9 @@ public class MedianOfTwoSortedArrays {
         int checkIndex2 = 0;
         int num1Length = nums1.length;
         int num2Length = nums2.length;
-        int medianIndex = (num1Length+num2Length)/2-1 ;
+        int medianIndex = (num1Length+num2Length)/2 ;
         boolean divideFlag = (num1Length + num2Length)%2==0?true:false;
+
         int prevNum = 0;
 
         while(true){
@@ -34,9 +35,9 @@ public class MedianOfTwoSortedArrays {
 
             if(checkIndex2 == medianIndex){
                 if(divideFlag){
-                    return (double) ((nums2[checkIndex1] + prevNum)/2);
+                    return (double) ((nums2[checkIndex2] + prevNum)/2);
                 }
-                return nums2[checkIndex1];
+                return nums2[checkIndex2];
             }
 
             if(checkIndex1==num1Length-1){
