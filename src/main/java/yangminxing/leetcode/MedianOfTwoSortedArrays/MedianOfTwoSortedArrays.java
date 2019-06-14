@@ -1,10 +1,12 @@
 package yangminxing.leetcode.MedianOfTwoSortedArrays;
 
+import java.util.Calendar;
+
 public class MedianOfTwoSortedArrays {
 
     public static void main(String[] args) {
-        int[] num1 = new int[]{0,0,4};
-        int[] num2 = new int[]{0,1,1};
+        int[] num1 = new int[]{1, 4};
+        int[] num2 = new int[]{3, 6};
 
         MedianOfTwoSortedArrays sol = new MedianOfTwoSortedArrays();
         System.out.println(sol.findMedianSortedArrays(num1, num2));
@@ -23,63 +25,43 @@ public class MedianOfTwoSortedArrays {
         int checkIndex2 = 0;
         int num1Length = nums1.length;
         int num2Length = nums2.length;
-        int medianIndex = (num1Length + num2Length) / 2 ;
+        int medianIndex = (num1Length + num2Length) / 2 +1;
         boolean divideFlag = (num1Length + num2Length) % 2 == 0 ? true : false;
 
         int prevNum = 0;
 
         while (true) {
-
-            if (checkIndex1== medianIndex) {
-                int curValue;
-                if (checkIndex1 > num1Length - 1) {
-                    curValue = nums2[checkIndex2];
-                } else {
-                    curValue = nums1[checkIndex1];
-                }
-                if (divideFlag) {
-                    return (((double)curValue + (double)prevNum) / 2);
-                }
-                return nums1[checkIndex1];
-            }
-
-            if (checkIndex2 == medianIndex) {
-                int curValue;
-                if (checkIndex2 > num2Length - 1) {
-                    curValue = nums1[checkIndex1];
-                } else {
-                    curValue = nums2[checkIndex2];
-                }
-                if (divideFlag) {
-                    return (((double)curValue + (double)prevNum) / 2);
-                }
-                return nums2[checkIndex2];
-            }
-
+            int curValue =0 ;
+            boolean d=false;
             if (checkIndex1 == num1Length) {
-                prevNum = nums2[checkIndex2];
+                curValue = nums2[checkIndex2];
                 checkIndex2++;
-                continue;
+                d=true;
             }
-
-            if (checkIndex2 == num2Length) {
-                prevNum = nums1[checkIndex1];
+            else if (checkIndex2 == num2Length) {
+                curValue = nums1[checkIndex1];
                 checkIndex1++;
-                continue;
+                d=true;
             }
 
-            if (nums1[checkIndex1] <= nums2[checkIndex2]) {
-                prevNum = nums1[checkIndex1];
+
+            if (!d && (nums1[checkIndex1] <= nums2[checkIndex2])) {
+                curValue = nums1[checkIndex1];
                 checkIndex1++;
-                continue;
             }
-
-            if (nums1[checkIndex1] > nums2[checkIndex2]) {
-                prevNum = nums2[checkIndex2];
+            else if (!d && (nums1[checkIndex1] > nums2[checkIndex2])) {
+                curValue = nums2[checkIndex2];
                 checkIndex2++;
-                continue;
             }
 
+            if (checkIndex1 + checkIndex2 == medianIndex) {
+                if (divideFlag) {
+                    return (((double) curValue + (double) prevNum) / 2);
+                }
+                return curValue;
+            }
+
+            prevNum = curValue;
         }
     }
 }
