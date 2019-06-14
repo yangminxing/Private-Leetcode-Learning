@@ -1,5 +1,5 @@
 # Private-Leetcode-Learning
-A project for learning leetcode. Although many leet problems had been solved, I think I should solve these problems again for learning, and I feel happy with it.   
+A project for learning leetcode. Although many leet problems have been solved, I think I should solve these problems again for learning, and I feel happy with it.   
 
 # Solved Problem
 
