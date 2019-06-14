@@ -3,7 +3,7 @@ package yangminxing.leetcode.AddTwoNumber;
 import java.util.ArrayList;
 import java.util.List;
 
-class Solution {
+class AddTwoNumber {
 
     public static void main(String[] args) {
         ListNode a1 = new ListNode(1);
@@ -16,7 +16,7 @@ class Solution {
         ListNode b2 = new ListNode(6);
         b1.next = b2;
 
-        Solution s = new Solution();
+        AddTwoNumber s = new AddTwoNumber();
         ListNode node = s.addTwoNumbers(a1, b1);
         System.out.println(node);
     }
