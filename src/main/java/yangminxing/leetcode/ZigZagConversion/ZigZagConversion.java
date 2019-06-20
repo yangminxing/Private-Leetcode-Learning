@@ -26,8 +26,14 @@ public class ZigZagConversion {
            return;
         }
         if(prev == next){
+            if(prev>=s.length()){
+           return;
+        }
             sbMap.get(floor).append(s.charAt(prev));
             return;
+        }
+        if(next>=s.length()){
+           return;
         }
         sbMap.get(floor).append(s.charAt(prev));
         if(floor!=0) {
