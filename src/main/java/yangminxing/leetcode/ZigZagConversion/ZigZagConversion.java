@@ -22,6 +22,9 @@ public class ZigZagConversion {
     }
 
     public void rep(Map<Integer, StringBuilder> sbMap, int floor, int prev, int next, String s) {
+        if(next>=s.length()){
+           return;
+        }
         if(prev == next){
             sbMap.get(floor).append(s.charAt(prev));
             return;
