@@ -22,6 +22,7 @@ public class ReverseInteger {
         if(bigNum<-2147483648.0 || bigNum> 2147483647.0){
             return 0;
         }
+
         return Integer.valueOf(negetiveFlag?"-"+result:result);
     }
 
