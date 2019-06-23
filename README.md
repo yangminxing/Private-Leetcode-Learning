@@ -8,5 +8,5 @@ A project for learning leetcode. Although many leet problems have been solved, I
  - No.5 Longest Palindromic Substring  
  - No.6 ZigZag Conversion  
  - No.7 Reverse Integer  
- - no.9 Palindrome Number  
+ - No.9 Palindrome Number  
  - No.72 Edit Distance  
